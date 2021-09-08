@@ -17,6 +17,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private HttpServletRequest request;
 
 	@PostMapping(path = "/addUser")
 	public ResponseEntity<Object> addUser(@RequestBody AddUserDTO addUserDTO) {
@@ -29,4 +32,11 @@ public class UserController {
 		}
 	}
 
+	@GetMapping(path = "/currentUser")
+	public ResponseEntity<Object> getCurrentUser() {
+		HttpSession session = request.getSession();
+		Object user = session.getAttribute("currentUser");
+		
+		return ResponseEntity.status(201).body(user);
+	}
 }
