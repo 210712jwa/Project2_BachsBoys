@@ -42,5 +42,19 @@ public class LoginController {
 			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
 		}
 	}
+	
+	@PostMapping(path = "/logout")
+	public ResponseEntity<Object> logout(){
+	
+			HttpSession session = request.getSession(false);
+			
+			if(session == null || session.getAttribute("currentUser") == null) {
+				return ResponseEntity.status(400).body(new MessageDTO("You are not logged in"));
+			}
+			
+			session.invalidate();
+			return ResponseEntity.status(200).body(new MessageDTO("Successfully logged out "));
+		
+	}
 
 }
