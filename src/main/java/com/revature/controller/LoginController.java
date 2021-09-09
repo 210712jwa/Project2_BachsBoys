@@ -44,6 +44,10 @@ public class LoginController {
 			User user = this.authService.login(loginDTO);
 			
 			HttpSession session = request.getSession();
+			
+			if (session.getAttribute("currentUser") != null) {
+				return ResponseEntity.status(400).body(new MessageDTO("You are already logged in!"));
+			}
 			session.setAttribute("currentUser", user);
 			
 			
@@ -68,20 +72,6 @@ public class LoginController {
 		} catch (BadParameterException e) {
 			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
 		}
-	}
-	
-	@PostMapping(path = "/logout")
-	public ResponseEntity<Object> logout(){
-	
-			HttpSession session = request.getSession(false);
-			
-			if(session == null || session.getAttribute("currentUser") == null) {
-				return ResponseEntity.status(400).body(new MessageDTO("You are not logged in"));
-			}
-			
-			session.invalidate();
-			return ResponseEntity.status(200).body(new MessageDTO("Successfully logged out "));
-		
 	}
 
 }
