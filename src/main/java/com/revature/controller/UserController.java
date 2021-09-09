@@ -74,4 +74,11 @@ public class UserController {
 	
 	
 
+	@GetMapping(path = "/currentUser")
+	public ResponseEntity<Object> getCurrentUser() {
+		HttpSession session = request.getSession();
+		Object user = session.getAttribute("currentUser");
+		
+		return ResponseEntity.status(201).body(user);
+	}
 }

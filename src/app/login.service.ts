@@ -1,23 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from 'src/model/User';
+import { User } from 'src/model/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) {
-   }
+  constructor(private hc: HttpClient) { }
 
-   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+  login(username: string, password: string): Observable<User> {
+    return this.hc.post<User>(`${environment.backendUrl}/Project2/login`, {
+      'username': username,
+      'password': password
+    }, {
+      withCredentials: true
+    });
   }
 
-  postLogin(loginData: any): Observable<User> {
-    return this.http.post<User>('http://localhost:8080/Project2/login', JSON.stringify(loginData), this.httpOptions);
+  checkIfLoggedIn(): Observable<User> {
+    return this.hc.get<User>(`${environment.backendUrl}/Project2/currentuser`, {
+      withCredentials: true
+    });
   }
+
+  logout() {
+    return this.hc.post(`${environment.backendUrl}/Project2/logout`, {}, {
+      withCredentials: true
+    });
+  }
+
 }
