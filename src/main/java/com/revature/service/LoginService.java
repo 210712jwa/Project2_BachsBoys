@@ -11,12 +11,9 @@ import com.revature.model.User;
 @Service
 public class LoginService {
 	
-	private LoginDAO loginDAO;
-	
 	@Autowired
-	public LoginService(LoginDAO loginDAO) {
-		this.loginDAO = loginDAO;
-	}
+	private LoginDAO loginDAO;
+
 
 	public User login(LoginDTO loginDTO) throws BadParameterException {
 		if(loginDTO.getUsername().trim().equals("") && loginDTO.getPassword().trim().equals("")) {

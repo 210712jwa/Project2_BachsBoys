@@ -1,11 +1,17 @@
 package com.revature.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.UserDAO;
+import com.revature.dto.AddBucketToUserDTO;
+import com.revature.dto.AddFriendToUserDTO;
 import com.revature.dto.AddUserDTO;
 import com.revature.exception.BadParameterException;
+import com.revature.model.Bucket;
+import com.revature.model.Friend;
 import com.revature.model.User;
 
 @Service
@@ -36,4 +42,17 @@ public class UserService {
 		return user;
 	}
 
+	public List<Bucket> getAllBuckets() throws BadParameterException{
+		List<Bucket> buckets = userDAO.getAllBuckets();
+		return buckets;
+	}
+
+	public Bucket addBucketToUser(AddBucketToUserDTO addBucketToUserDTO) throws BadParameterException {
+		Bucket bucket = userDAO.addBucketToUser(addBucketToUserDTO);
+		return bucket;
+	}
+
+	
+
+	
 }
