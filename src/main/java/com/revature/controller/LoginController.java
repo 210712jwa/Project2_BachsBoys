@@ -60,18 +60,17 @@ public class LoginController {
 	}
 	
 	@PostMapping(path = "/logout")
-	public ResponseEntity<Object> logout(@RequestBody LoginDTO loginDTO){
-		try {
-			User user = loginService.login(loginDTO);
+	public ResponseEntity<Object> logout(){
+	
+			HttpSession session = request.getSession(false);
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("currentUser", user);
+			if(session == null || session.getAttribute("currentUser") == null) {
+				return ResponseEntity.status(400).body(new MessageDTO("You are not logged in"));
+			}
 			
-			
-			return ResponseEntity.status(200).body(user);
-		} catch (BadParameterException e) {
-			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
-		}
+			session.invalidate();
+			return ResponseEntity.status(200).body(new MessageDTO("Successfully logged out "));
+		
 	}
 
 }
