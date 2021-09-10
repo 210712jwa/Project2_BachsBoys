@@ -1,7 +1,7 @@
 Ranked from most important at top to least important at bottom
 
 
-- picking an external API
+- picking an external API (McCabe, complete)
 
 - integrating external API into bucket endpoints
 
