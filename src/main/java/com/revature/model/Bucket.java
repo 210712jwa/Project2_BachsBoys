@@ -21,6 +21,9 @@ public class Bucket {
 	@Column(name = "country")
 	private String country;
 	
+	@Column (name = "city")
+	private String city;
+	
 	
 
 }

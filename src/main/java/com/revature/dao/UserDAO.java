@@ -50,9 +50,10 @@ public class UserDAO {
 
 	
 	@Transactional
-	public User getUserByUsername() {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserByUsername(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = (User) session.createQuery("Select s FROM User s WHERE s.username = :username").setParameter("username", username).getSingleResult();
+		return user;
 	}
 
 	

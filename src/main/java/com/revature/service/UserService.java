@@ -57,8 +57,8 @@ public class UserService {
 		return users;
 	}
 
-	public User getUserByUsername() {
-		User user = userDAO.getUserByUsername();
+	public User getUserByUsername(String username) {
+		User user = userDAO.getUserByUsername(username);
 		return user;
 	}
 

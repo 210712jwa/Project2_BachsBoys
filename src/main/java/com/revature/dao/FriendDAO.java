@@ -32,7 +32,6 @@ public class FriendDAO {
 	public List<Friend> getAllFriends(User user) {
 		Session session = sessionFactory.getCurrentSession();
 		List<Friend> friends = session.createQuery("Select s FROM Friend s JOIN s.user u WHERE u.id = :userid").setParameter("userid", user.getId()).getResultList();
-		
 		return friends;
 	}
 
