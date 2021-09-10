@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<title>Add New User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+
+<h1 class="w3-text-blue">Add New User</h1>
+
+<form>
+    <div>
+        <label class="w3-text-white" for="username">Username:</label>
+        <input class="w3-input w3-border" [(ngModel)]="username" type="text" name="username">
+    </div>
+    <div>
+        <label class="w3-text-white" for="password">Password:</label>
+        <input  class="w3-input w3-border" [(ngModel)]="password" type="text" name="password">
+      </div>
+      <div>
+        <label class="w3-text-white" for="password">First Name:</label>
+        <input  class="w3-input w3-border" [(ngModel)]="firstname" type="text" name="firstname">
+      </div>
+      <div>
+        <label class="w3-text-white" for="password">Last Name:</label>
+        <input  class="w3-input w3-border" [(ngModel)]="lastname" type="text" name="lastname">
+      </div>
+      <div>
+        <button class="w3-btn w3-blue"(click)="register()" data-inline = "true">Add User</button>
+ 
+      </div>
+</form>    
+</body>
+
+</html>

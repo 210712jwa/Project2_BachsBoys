@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ViewShipsComponent } from './view-ships/view-ships.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ViewShipsComponent,
-    UserPageComponent
+    UserPageComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

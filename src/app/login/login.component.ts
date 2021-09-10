@@ -46,4 +46,9 @@ export class LoginComponent implements OnInit {
 
   }
 
+ addUser(){
+  this.router.navigate(['add-user']);
+
+ }
+
 }
