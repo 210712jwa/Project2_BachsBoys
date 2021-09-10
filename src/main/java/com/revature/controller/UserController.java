@@ -72,6 +72,16 @@ public class UserController {
 		}
 	}
 	
-	
+	@GetMapping(path = "/currentuser")
+	public ResponseEntity<Object> getCurrentUser() {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("currentUser");
+		
+		if(user == null) {
+			return ResponseEntity.status(400).body(new MessageDTO());
+		} else {
+			return ResponseEntity.status(201).body(user);
+		}
+	}
 
 }
