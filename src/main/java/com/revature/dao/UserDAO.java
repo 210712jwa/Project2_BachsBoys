@@ -41,6 +41,20 @@ public class UserDAO {
 		return null;
 	}
 
+	@Transactional
+	public List<User> getAllUsers() {
+		Session session = sessionFactory.getCurrentSession();
+		List<User> users = session.createQuery("Select s FROM User s").getResultList();
+		return users;
+	}
+
+	
+	@Transactional
+	public User getUserByUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 

@@ -48,6 +48,14 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping(path = "/getAllUsers", produces = "application/json")
+	public ResponseEntity<Object> getAllUsers(){
+		
+		List<User> users = userService.getAllUsers();
+		return ResponseEntity.status(200).body(users);
+		
+	}
+
 
 	@GetMapping(path = "/getAllBuckets", produces = "application/json")
 	public ResponseEntity<Object> getAllBuckets(){
@@ -72,16 +80,6 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping(path = "/currentUser")
-	public ResponseEntity<Object> getCurrentUser() {
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("currentUser");
-		
-		if(user == null) {
-			return ResponseEntity.status(400).body(new MessageDTO("no user currently logged in!"));
-		} else {
-			return ResponseEntity.status(201).body(user);
-		}
-	}
+	
 
 }

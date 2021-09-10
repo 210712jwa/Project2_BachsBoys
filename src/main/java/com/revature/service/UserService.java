@@ -52,6 +52,16 @@ public class UserService {
 		return bucket;
 	}
 
+	public List<User> getAllUsers() {
+		List<User> users = userDAO.getAllUsers();
+		return users;
+	}
+
+	public User getUserByUsername() {
+		User user = userDAO.getUserByUsername();
+		return user;
+	}
+
 	
 
 	
