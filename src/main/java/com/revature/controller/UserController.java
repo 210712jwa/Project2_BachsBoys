@@ -78,7 +78,7 @@ public class UserController {
 		User user = (User) session.getAttribute("currentUser");
 		
 		if(user == null) {
-			return ResponseEntity.status(400).body(new MessageDTO());
+			return ResponseEntity.status(400).body(new MessageDTO("no user currently logged in!"));
 		} else {
 			return ResponseEntity.status(201).body(user);
 		}
