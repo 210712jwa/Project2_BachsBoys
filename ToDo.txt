@@ -7,7 +7,11 @@ Ranked from most important at top to least important at bottom
 
 - creating a buckets component
 
-- integrating buckets component with bucket endpoints
+- integrating buckets component with bucket endpoints (Colten)
+
+- implementing user search functionality to backend and frontend  (Colten)
+
+- implementing bucket search functionality to backend and frontend (Colten)
 
 - addUser component needs frontend to backend connection
 
@@ -15,7 +19,9 @@ Ranked from most important at top to least important at bottom
 
 - connect friend-page component to backend through getAllFriends and addFriend enpoint
 
-- unit testing (80% service layer code coverage)
+- display friends and buckets on user-page
+
+- unit testing (80% service layer code coverage) (Colten)
 
 - integration testing (using spring test, mccabe is currently reviewing info)
 
