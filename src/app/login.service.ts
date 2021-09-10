@@ -21,7 +21,7 @@ export class LoginService {
   }
 
   checkIfLoggedIn(): Observable<User> {
-    return this.hc.get<User>(`${environment.backendUrl}/Project2/currentuser`, {
+    return this.hc.get<User>(`${environment.backendUrl}/Project2/currentUser`, {
       withCredentials: true
     });
   }
