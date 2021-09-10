@@ -11,6 +11,10 @@ Ranked from most important at top to least important at bottom
 
 - addUser component needs frontend to backend connection
 
+- make a friend-page component
+
+- connect friend-page component to backend through getAllFriends and addFriend enpoint
+
 - unit testing (80% service layer code coverage)
 
 - integration testing (using spring test, mccabe is currently reviewing info)
