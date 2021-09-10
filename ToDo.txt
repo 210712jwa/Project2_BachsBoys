@@ -1,0 +1,35 @@
+Ranked from most important at top to least important at bottom
+
+
+- picking an external API
+
+- integrating external API into bucket endpoints
+
+- creating a buckets component
+
+- integrating buckets component with bucket endpoints
+
+- addUser component needs frontend to backend connection
+
+- unit testing (80% service layer code coverage)
+
+- integration testing (using spring test, mccabe is currently reviewing info)
+
+- selenium E2E testing (requirments say at least 4 selenium tests)
+
+
+AWS Deployment (Frontend + Backend)
+
+- The frontend and backend should be deployed on your EC2 instance
+- You can utilize the Tomcat server that you set-up on your EC2 to host your backend Spring Framework application
+- You can also deploy static files (.html, .js) containing your Angular frontend through Tomcat as well
+
+
+DevOps Pipeline
+
+- This requirement should likely be saved towards the end, when you have already finished the other requirements
+- You should have a Jenkins pipeline set-up for automated building and deployment of your backend
+- You can also choose to do the same for your frontend
+
+
+- Styling for our pages so they dont look like poopoo
