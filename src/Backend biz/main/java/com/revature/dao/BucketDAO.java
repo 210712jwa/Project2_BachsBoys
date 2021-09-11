@@ -61,6 +61,14 @@ public class BucketDAO {
 	}
 	
 	@Transactional
+	public Bucket getBucketById(int Id) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		Bucket bucket = session.get(Bucket.class, Id);
+		return bucket;													
+	}
+	
+	@Transactional
 	public List<Bucket> getBucketByCountry(String country) {
 		
 		Session session = sessionFactory.getCurrentSession();

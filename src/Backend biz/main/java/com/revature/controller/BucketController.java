@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,7 @@ import com.revature.dto.AddBucketDTO;
 import com.revature.dto.AddBucketToUserDTO;
 import com.revature.dto.MessageDTO;
 import com.revature.exception.BadParameterException;
+import com.revature.exception.DatabaseException;
 import com.revature.model.Bucket;
 import com.revature.model.User;
 import com.revature.service.BucketService;
@@ -55,6 +57,10 @@ public class BucketController {
 			return ResponseEntity.status(201).body(bucket);
 		} catch(BadParameterException e) {
 			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+		} catch(LoginException e) {
+			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+		} catch(DatabaseException e) {
+			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
 		}
 		
 		
@@ -62,21 +68,35 @@ public class BucketController {
 	
 	@GetMapping(path = "/getBucketByCity", produces = "application/json")
 	public ResponseEntity<Object> getBucketByCity(@RequestParam(name="city") String city){
-		Bucket bucket = bucketService.getBucketByCity(city);
-		return ResponseEntity.status(200).body(bucket);
-		
+		try {
+			Bucket bucket = bucketService.getBucketByCity(city);
+			return ResponseEntity.status(200).body(bucket);
+			
+		}catch(DatabaseException e) {
+			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+		}			
 	}
 	
 	@GetMapping(path = "/getBucketByCountry", produces = "application/json")
 	public ResponseEntity<Object> getBucketByCountry(@RequestParam(name="country") String country){
-		List<Bucket> buckets = bucketService.getBucketByCountry(country);
-		return ResponseEntity.status(200).body(buckets);
-		
+		try {
+			List<Bucket> buckets = bucketService.getBucketByCountry(country);
+			return ResponseEntity.status(200).body(buckets);
+			
+		}catch(DatabaseException e) {
+			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+		}		
 	}
 		
 	@GetMapping(path = "/getAllBuckets", produces = "application/json")
 	public ResponseEntity<Object> getAllBuckets(){
+		try {
 			List<Bucket> buckets = bucketService.getAllBuckets();
 			return ResponseEntity.status(200).body(buckets);
+			
+		}catch(DatabaseException e) {
+			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+		}
+			
 	}
 }
