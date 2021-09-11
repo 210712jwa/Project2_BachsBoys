@@ -54,6 +54,14 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@ManyToMany(cascade = { CascadeType.ALL })
+    	@JoinTable(
+        name = "User_Bucket", 
+        joinColumns = { @JoinColumn(name = "user_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "bucket_id") }
+    	)
+	private Set<Bucket> buckets = new HashSet<>();
+	
 	
 	public int getId() {
 		return id;
@@ -93,6 +101,19 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public void addBucket(Bucket bucket) {
+		this.buckets.add(bucket);
+	}
+	
+
+	public Set<Bucket> getBuckets() {
+		return buckets;
+	}
+
+	public void setBuckets(Set<Bucket> buckets) {
+		this.buckets = buckets;
 	}
 
 	@Override
