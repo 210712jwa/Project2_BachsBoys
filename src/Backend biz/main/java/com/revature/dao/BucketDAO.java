@@ -29,6 +29,7 @@ public class BucketDAO {
 		return bucket;
 	}
 	
+	@Transactional
 	public Bucket addBucketToUser(User user, AddBucketToUserDTO addBucketToUserDTO) {
 		Session session = sessionFactory.getCurrentSession();
 		Bucket bucket = session.get(Bucket.class, addBucketToUserDTO.getBucketId());
@@ -39,12 +40,14 @@ public class BucketDAO {
 		return bucket;	
 	}
 	
+	@Transactional
 	public List<Bucket> getAllBuckets(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Bucket> buckets = session.createQuery("Select s FROM Bucket s").getResultList();
 		return buckets;
 	}
 
+	@Transactional
 	public Bucket getBucketByCity(String city) {
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -52,12 +55,11 @@ public class BucketDAO {
 		return bucket;													
 	}
 	
-public List<Bucket> getBucketByCountry(String country) {
+	@Transactional
+	public List<Bucket> getBucketByCountry(String country) {
 		
 		Session session = sessionFactory.getCurrentSession();
 		List<Bucket> buckets = session.createQuery("Select s FROM Bucket s WHERE s.country = :country").setParameter("country", country).getResultList();
 		return buckets;
 	}
-	
-
 }
