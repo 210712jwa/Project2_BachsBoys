@@ -31,16 +31,6 @@ public class UserDAO {
 		return newUser;
 	}
 
-	public List<Bucket> getAllBuckets() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Bucket addBucketToUser(AddBucketToUserDTO addBucketToUserDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Transactional
 	public List<User> getAllUsers() {
 		Session session = sessionFactory.getCurrentSession();
@@ -55,8 +45,11 @@ public class UserDAO {
 		User user = (User) session.createQuery("Select s FROM User s WHERE s.username = :username").setParameter("username", username).getSingleResult();
 		return user;
 	}
-
 	
-	
-
+	@Transactional
+	public Set<Bucket> getUserBuckets(User user) {
+		Session session = sessionFactory.getCurrentSession();
+		Set<Bucket> buckets = user.getBuckets();
+		return buckets;
+	}
 }
