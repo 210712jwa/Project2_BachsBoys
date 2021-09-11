@@ -42,16 +42,6 @@ public class UserService {
 		return user;
 	}
 
-	public List<Bucket> getAllBuckets() throws BadParameterException{
-		List<Bucket> buckets = userDAO.getAllBuckets();
-		return buckets;
-	}
-
-	public Bucket addBucketToUser(AddBucketToUserDTO addBucketToUserDTO) throws BadParameterException {
-		Bucket bucket = userDAO.addBucketToUser(addBucketToUserDTO);
-		return bucket;
-	}
-
 	public List<User> getAllUsers() {
 		List<User> users = userDAO.getAllUsers();
 		return users;
@@ -61,8 +51,10 @@ public class UserService {
 		User user = userDAO.getUserByUsername(username);
 		return user;
 	}
-
 	
-
+	public Set<Bucket> getUserBuckets(User user) {
+		Set<Bucket> buckets = userDAO.getUserBuckets(user);
+		return buckets;
+	}
 	
 }
