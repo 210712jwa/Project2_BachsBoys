@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,13 @@ public class BucketDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@Transactional
 	public Bucket addBucket(AddBucketDTO addBucketDTO) {
-		Session session = sessionFactory.getCurrentSession();
+		System.out.println("here");
+		Session session;
+			session = sessionFactory.getCurrentSession();
+		
+		
 		Bucket bucket = new Bucket();
 		bucket.setCity(addBucketDTO.getCity());
 		bucket.setCountry(addBucketDTO.getCountry());
@@ -35,8 +41,6 @@ public class BucketDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Bucket bucket = session.get(Bucket.class, addBucketToUserDTO.getBucketId());
 		user.addBucket(bucket);
-		bucket.addUser(user);
-		session.saveOrUpdate(bucket);
 		session.saveOrUpdate(user);
 		return bucket;	
 	}

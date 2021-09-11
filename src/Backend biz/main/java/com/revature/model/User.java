@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import antlr.collections.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,7 +26,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "user")
-
+@JsonIgnoreProperties(value= {"buckets"})
 public class User {
 	
 	public User(String username, String password, String firstName, String lastName) {
