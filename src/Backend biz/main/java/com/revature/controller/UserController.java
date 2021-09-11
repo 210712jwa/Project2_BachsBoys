@@ -65,27 +65,12 @@ public class UserController {
 	}
 
 
-	@GetMapping(path = "/getAllBuckets", produces = "application/json")
-	public ResponseEntity<Object> getAllBuckets(){
-		try {
-			List<Bucket> buckets = userService.getAllBuckets();
-			
-			return ResponseEntity.status(200).body(buckets);
-		} catch(BadParameterException e) {
-			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
-		}
-	}
-	
-	
-	@PatchMapping(path = "/addBucketToUser", produces = "application/json")
-	public ResponseEntity<Object> addBucketToUser(@RequestBody AddBucketToUserDTO addBucketToUserDTO) {
-		try {
-			Bucket bucket = userService.addBucketToUser(addBucketToUserDTO);
-			
-			return ResponseEntity.status(201).body(bucket);
-		} catch(BadParameterException e) {
-			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
-		}
+	@GetMapping(path = "/getUserBuckets", produces = "application/json")
+	public ResponseEntity<Object> getUserBuckets(){
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("currentUser");
+		Set<Bucket> buckets = userService.getUserBuckets(user);
+		return ResponseEntity.status(200).body(buckets);
 	}
 	
 	
