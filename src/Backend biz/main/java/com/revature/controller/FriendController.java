@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.dto.AddFriendToUserDTO;
 import com.revature.dto.MessageDTO;
 import com.revature.exception.BadParameterException;
+import com.revature.exception.DatabaseException;
 import com.revature.model.Friend;
 import com.revature.model.User;
 import com.revature.service.FriendService;
@@ -40,7 +42,7 @@ public class FriendController {
 			
 			return ResponseEntity.status(201).body(friend);
 			
-		} catch(BadParameterException e) {
+		} catch(DatabaseException e) {
 			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
 		}
 	}
@@ -49,8 +51,16 @@ public class FriendController {
 	public ResponseEntity<Object> getAllFriends(){
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("currentUser");
-			List<Friend> friends = friendService.getAllFriends(user);
-			return ResponseEntity.status(200).body(friends);
+			try {
+				List<Friend> friends = friendService.getAllFriends(user);
+				return ResponseEntity.status(200).body(friends);
+				
+			} catch(DatabaseException e) {
+				return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+			} catch(LoginException e) {
+				return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
+			}
+			
 		
 	}
 }

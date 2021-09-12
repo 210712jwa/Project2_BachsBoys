@@ -48,6 +48,13 @@ public class UserDAO {
 	}
 	
 	@Transactional
+	public User getUserById(int Id) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.get(User.class, Id);
+		return user;
+	}
+	
+	@Transactional
 	public Set<Bucket> getUserBuckets(User user) {
 		Session session = sessionFactory.getCurrentSession();
 		Set<Bucket> buckets = user.getBuckets();
