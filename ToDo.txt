@@ -27,6 +27,6 @@ DevOps Pipeline
 - You can also choose to do the same for your frontend
 
 
-- Navigation Bar?
+- Move Search bars into their own component to display on every page
 - Styling for our pages so they dont look like poopoo
 - improve search functionality
