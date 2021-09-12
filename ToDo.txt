@@ -1,27 +1,24 @@
 Ranked from most important at top to least important at bottom
 
 
-- picking an external API (McCabe, complete)
+- make a bucket-page component
+  -Display backend Info
+  -Display External Info
+  -Add bucket to profile button
 
-- integrating external API into bucket endpoints
+- implementing user search and add as friend functionality to frontend (Colten)
+  -Add search bar
+  -Connect search by username endpoint
+  -Viewing someone else's user-page should display Add Friend button
 
-- creating a buckets component
+- implementing bucket search and add functionality to frontend (Colten)
+  -Add search bar
+  -Connect search by city and country endpoints
+  -Clicking on a listing should take you to that buckets page
 
-- integrating buckets component with bucket endpoints (Colten)
+- display friends and buckets on user-page (Colten)
 
-- implementing user search functionality to backend and frontend  (Colten)
-
-- implementing bucket search functionality to backend and frontend (Colten)
-
-- addUser component needs frontend to backend connection
-
-- make a friend-page component
-
-- connect friend-page component to backend through getAllFriends and addFriend enpoint
-
-- display friends and buckets on user-page
-
-- unit testing (80% service layer code coverage) (Colten)
+- unit testing (80% service layer code coverage)
 
 - integration testing (using spring test, mccabe is currently reviewing info)
 
