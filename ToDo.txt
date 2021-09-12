@@ -1,6 +1,6 @@
 Ranked from most important at top to least important at bottom
 
-- finish bucket-page component
+- finish bucket-page component (colten)
   -Display External Info
   -Add bucket to profile button
 
