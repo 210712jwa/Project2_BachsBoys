@@ -7,19 +7,19 @@ Ranked from most important at top to least important at bottom
   -Display External Info
   -Add bucket to profile button
 
-- implementing user search and add as friend functionality to frontend  (Colten)
+- implementing user search and add as friend functionality to frontend 
   -Add search bar
   -Connect search by username endpoint
   -Viewing someone else's user-page should display Add Friend button
 
-- implementing bucket search and add functionality to frontend (Colten)
+- implementing bucket search and add functionality to frontend
   -Add search bar
   -Connect search by city and country endpoints
   -Clicking on a listing should take you to that buckets page
 
 - display friends and buckets on user-page
 
-- unit testing (80% service layer code coverage) (Colten)
+- unit testing (80% service layer code coverage)
 
 - integration testing (using spring test, mccabe is currently reviewing info)
 
