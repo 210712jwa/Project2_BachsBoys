@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from 'src/model/user';
 import { Bucket } from 'src/model/bucket';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewuser-page',
@@ -12,6 +13,7 @@ import { Bucket } from 'src/model/bucket';
 export class ViewuserPageComponent implements OnInit {
 
   viewedUser: any = null;
+  isNotFriend: boolean = true;
 
   citySearch: string = '';
   usernameSearch: string = '';
@@ -19,10 +21,11 @@ export class ViewuserPageComponent implements OnInit {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
     this.checkSearchedUserCookie();
+    this.checkIfFriendAlready();
   }
 
   checkSearchedUserCookie(){
@@ -32,8 +35,19 @@ export class ViewuserPageComponent implements OnInit {
     });
 
   }
+  checkIfFriendAlready(){
+    this.userService.checkIfFriendAlready().subscribe((data)=>{
+      if(data != null){
+        this.isNotFriend = false;
+      }
+
+    });
+  }
 
   addFriend(){
+    this.userService.addFriend(this.viewedUser.id).subscribe((data)=>{
+      this.router.navigate(['user-page']);
+    });
 
   }
 

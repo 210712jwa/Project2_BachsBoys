@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div>
-        <button (click)="addFriend()">Add Friend</button>
+        <button *ngIf="isNotFriend" (click)="addFriend()">Add Friend</button>
     </div>
     <div>
       <label for="usernameSearch">Search Username:</label>

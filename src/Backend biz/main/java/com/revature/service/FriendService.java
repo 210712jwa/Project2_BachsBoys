@@ -43,4 +43,11 @@ public class FriendService {
 		return friends;
 	}
 
+	public Friend checkFriend(User user, User friend) {
+		Friend link = friendDAO.checkFriend(user ,friend);
+		return link;
+	}
+
+
+
 }

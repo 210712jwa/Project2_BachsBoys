@@ -35,4 +35,11 @@ public class FriendDAO {
 		return friends;
 	}
 
+	@Transactional
+	public Friend checkFriend(User user, User friend) {
+		Session session = sessionFactory.getCurrentSession();
+		Friend link = (Friend) session.createQuery("Select s FROM Friend s WHERE s.user = :user AND s.friend = :friend").setParameter("user", user).setParameter("friend", friend).getSingleResult();
+		return link;
+	}
+
 }

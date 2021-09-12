@@ -4,6 +4,7 @@ import { User } from 'src/model/user';
 import { Bucket } from 'src/model/bucket';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Friend } from 'src/model/friend';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,14 @@ export class UserService {
       withCredentials: true
     });
   }
-
+  
+  addFriend(id:number):Observable<Friend>{
+    return this.hc.post<Friend>(`${environment.backendUrl}/Project2Testing/addFriend`,{
+      'friendId': id
+    }, {
+      withCredentials: true
+    });
+  }
   searchUsername(username:string): Observable<User>{
     return this.hc.get<User>(`${environment.backendUrl}/Project2Testing/getUserByUsername?username=${username}`,{
       withCredentials: true
@@ -31,6 +39,12 @@ export class UserService {
 
   checkSearchedUserCookie(): Observable<User>{
     return this.hc.get<User>(`${environment.backendUrl}/Project2Testing/searchedUser`,{
+      withCredentials:true
+    });
+  }
+
+  checkIfFriendAlready(): Observable<Friend>{
+    return this.hc.get<Friend>(`${environment.backendUrl}/Project2Testing/checkFriend`,{
       withCredentials:true
     });
   }

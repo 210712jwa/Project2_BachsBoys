@@ -63,4 +63,12 @@ public class FriendController {
 			
 		
 	}
+	@GetMapping(path ="/checkFriend", produces = "application/json")
+	public ResponseEntity<Object> checkFriend(){
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("currentUser");
+		User friend = (User) session.getAttribute("searchedUser");
+		Friend link = friendService.checkFriend(user,friend);
+		return ResponseEntity.status(200).body(link);
+	}
 }
