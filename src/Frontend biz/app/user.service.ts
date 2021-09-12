@@ -28,4 +28,10 @@ export class UserService {
       withCredentials: true
     });
   }
+
+  checkSearchedUserCookie(): Observable<User>{
+    return this.hc.get<User>(`${environment.backendUrl}/Project2Testing/searchedUser`,{
+      withCredentials:true
+    });
+  }
 }

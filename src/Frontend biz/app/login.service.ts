@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private hc: HttpClient) { }
 
   login(username: string, password: string): Observable<User> {
-    return this.hc.post<User>(`${environment.backendUrl}/Project2/login`, {
+    return this.hc.post<User>(`${environment.backendUrl}/Project2Testing/login`, {
       'username': username,
       'password': password
     }, {
@@ -21,13 +21,13 @@ export class LoginService {
   }
 
   checkIfLoggedIn(): Observable<User> {
-    return this.hc.get<User>(`${environment.backendUrl}/Project2/currentUser`, {
+    return this.hc.get<User>(`${environment.backendUrl}/Project2Testing/currentUser`, {
       withCredentials: true
     });
   }
 
   logout() {
-    return this.hc.post(`${environment.backendUrl}/Project2/logout`, {}, {
+    return this.hc.post(`${environment.backendUrl}/Project2Testing/logout`, {}, {
       withCredentials: true
     });
   }

@@ -4,12 +4,14 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { BucketPageComponent } from './bucket-page/bucket-page.component';
 import { LoginComponent } from './login/login.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { ViewuserPageComponent } from './viewuser-page/viewuser-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'user-page', component: UserPageComponent },
   { path: 'add-user', component: AddUserComponent },
-  { path: 'bucket-page', component:BucketPageComponent}
+  { path: 'bucket-page', component:BucketPageComponent},
+  { path: 'viewuser-page', component: ViewuserPageComponent}
 ];
 
 @NgModule({

@@ -27,7 +27,7 @@ export class UserPageComponent implements OnInit {
   }
   searchUsername(){
     this.userService.searchUsername(this.usernameSearch).subscribe((data: User) => {
-
+      this.router.navigate(['viewuser-page']);
     },
     (err: HttpErrorResponse) =>{
       this.showErrorMessage = true;
@@ -44,6 +44,7 @@ export class UserPageComponent implements OnInit {
 
   getAllFriends(){
     this.userService.getAllFriends().subscribe((data: User[]) =>{
+      
     });
   }
 

@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { ViewShipsComponent } from './view-ships/view-ships.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { ViewuserPageComponent } from './viewuser-page/viewuser-page.component';
+import { BucketPageComponent } from './bucket-page/bucket-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AddUserComponent } from './add-user/add-user.component';
     LoginComponent,
     ViewShipsComponent,
     UserPageComponent,
-    AddUserComponent
+    AddUserComponent,
+    ViewuserPageComponent,
+    BucketPageComponent 
   ],
   imports: [
     BrowserModule,

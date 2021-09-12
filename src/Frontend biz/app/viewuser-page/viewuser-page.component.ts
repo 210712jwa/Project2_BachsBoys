@@ -11,6 +11,8 @@ import { Bucket } from 'src/model/bucket';
 })
 export class ViewuserPageComponent implements OnInit {
 
+  viewedUser: any = null;
+
   citySearch: string = '';
   usernameSearch: string = '';
 
@@ -20,6 +22,15 @@ export class ViewuserPageComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.checkSearchedUserCookie();
+  }
+
+  checkSearchedUserCookie(){
+    this.userService.checkSearchedUserCookie().subscribe((data) => {
+      this.viewedUser = data;
+
+    });
+
   }
 
   addFriend(){
@@ -29,6 +40,8 @@ export class ViewuserPageComponent implements OnInit {
   logout(){
     
   }
+
+
 
   searchUsername(){
     this.userService.searchUsername(this.usernameSearch).subscribe((data: User) => {
