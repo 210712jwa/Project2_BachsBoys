@@ -1,14 +1,10 @@
 Ranked from most important at top to least important at bottom
 
-
 - finish bucket-page component
   -Display External Info
   -Add bucket to profile button
 
-- implementing user search and add as friend functionality to frontend (Colten)
-  -Add search bar
-  -Connect search by username endpoint
-  -Viewing someone else's user-page should display Add Friend button
+- implement add friend functionality to frontend (Colten)
 
 - display friends and buckets on user-page (Colten)
 
