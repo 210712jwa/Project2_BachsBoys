@@ -1,6 +1,5 @@
 Ranked from most important at top to least important at bottom
 
-- addUser component needs frontend  connection
 
 - make a bucket-page component
   -Display backend Info
