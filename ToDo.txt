@@ -1,10 +1,6 @@
 Ranked from most important at top to least important at bottom
 
-- finish bucket-page component (colten)
-  -Display External Info
-  -Add bucket to profile button
-
-- display friends and buckets on user-page and viewuser-page
+- display friends and buckets on user-page and viewuser-page (colten)
 
 - unit testing (80% service layer code coverage) (mccabe)
 
