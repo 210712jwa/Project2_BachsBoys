@@ -4,9 +4,9 @@ Ranked from most important at top to least important at bottom
   -Display External Info
   -Add bucket to profile button
 
-- implement add friend functionality to frontend (Colten)
+- implement add friend functionality to frontend
 
-- display friends and buckets on user-page (Colten)
+- display friends and buckets on user-page
 
 - unit testing (80% service layer code coverage)
 
