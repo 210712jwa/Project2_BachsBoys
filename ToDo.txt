@@ -3,19 +3,17 @@ Ranked from most important at top to least important at bottom
 
 - picking an external API (McCabe, complete)
 
-- integrating external API into bucket endpoints
+- integrating bucket endpoints into external API
 
-- creating a buckets component
+- implementing user search functionality to frontend  (Colten)
 
-- integrating buckets component with bucket endpoints (Colten)
+- implementing bucket search functionality to frontend (Colten)
 
-- implementing user search functionality to backend and frontend  (Colten)
-
-- implementing bucket search functionality to backend and frontend (Colten)
-
-- addUser component needs frontend to backend connection
+- addUser component needs frontend  connection
 
 - make a friend-page component
+
+- make a bucket-page component
 
 - connect friend-page component to backend through getAllFriends and addFriend enpoint
 
