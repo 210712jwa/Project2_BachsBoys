@@ -1,6 +1,7 @@
 package com.revature.service;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.security.auth.login.LoginException;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.BucketDAO;
+import com.revature.dao.UserDAO;
 import com.revature.dto.AddBucketDTO;
 import com.revature.dto.AddBucketToUserDTO;
 import com.revature.exception.BadParameterException;
@@ -20,6 +22,9 @@ public class BucketService {
 
 	@Autowired
 	private BucketDAO bucketDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 	public Bucket addBucket(AddBucketDTO addBucketDTO) throws BadParameterException{
 		if(addBucketDTO.getName().trim().equals("")) {
@@ -68,6 +73,13 @@ public class BucketService {
 			throw new DatabaseException("There are no buckets in the database right now!");
 		}
 		return buckets;
+	}
+
+	public boolean checkBucket(User user, Bucket bucket) {
+		Set<Bucket> userBuckets = userDAO.getUserBuckets(user);
+		boolean isAdded = false;
+		isAdded =userBuckets.contains(bucket);
+		return isAdded;
 	}
 
 }

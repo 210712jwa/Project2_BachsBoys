@@ -113,4 +113,17 @@ public class BucketController {
 		}
 			
 	}
+	@GetMapping(path = "/checkBucket",produces = "application/json")
+	public ResponseEntity<Object> checkBucket(){
+		HttpSession session = request.getSession();
+		Bucket bucket = (Bucket) session.getAttribute("currentBucket");
+		User user = (User) session.getAttribute("currentUser");
+		boolean isAdded = bucketService.checkBucket(user,bucket);
+		if(isAdded) {
+			return ResponseEntity.status(200).body(bucket);
+		} else {
+			return ResponseEntity.status(400).body(new MessageDTO("Bucket Already Added"));
+		}
+		
+	}
 }

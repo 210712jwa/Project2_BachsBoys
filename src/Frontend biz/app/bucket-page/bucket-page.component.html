@@ -1,3 +1,27 @@
 <p>City: {{ bucket.city }} </p>
 <p>Country: {{ bucket.country }}</p>
+<img src= "https://maps.googleapis.com/maps/api/staticmap?center={{bucket.city}}&zoom=14&size=400x400&maptype=roadmap&key=AIzaSyBna0j5zj3u_dALgd7VgT8mSXNXLye_Fc4" alt="map">
+<div>
+    <button *ngIf="isNotAdded" (click)= "addBucket()" data-inline = "true">Add Bucket</button>
+  </div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let listing of listingInfo">
+      <tr>
+        <td>{{listing.name}}</td>
+        <td>{{listing.wikipedia_extracts.text}}</td>
+        <td>
+            <img src={{listing.preview.source}}>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
 <router-outlet></router-outlet>
