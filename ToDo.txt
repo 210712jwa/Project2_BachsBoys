@@ -3,12 +3,19 @@ Ranked from most important at top to least important at bottom
 - addUser component needs frontend  connection
 
 - make a bucket-page component
-
-- integrating bucket endpoints into external API
+  -Display backend Info
+  -Display External Info
+  -Add bucket to profile button
 
 - implementing user search and add as friend functionality to frontend  (Colten)
+  -Add search bar
+  -Connect search by username endpoint
+  -Viewing someone else's user-page should display Add Friend button
 
 - implementing bucket search and add functionality to frontend (Colten)
+  -Add search bar
+  -Connect search by city and country endpoints
+  -Clicking on a listing should take you to that buckets page
 
 - display friends and buckets on user-page
 
