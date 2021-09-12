@@ -66,10 +66,24 @@ public class BucketController {
 		
 	}
 	
+	@GetMapping(path = "/getCurrentBucket", produces = "application/json")
+	public ResponseEntity<Object> getCurrentBucket(){
+		HttpSession session = request.getSession();
+		Bucket bucket = (Bucket) session.getAttribute("currentBucket");
+		
+		if(bucket == null) {
+			return ResponseEntity.status(400).body(new MessageDTO("no bucket searched!"));
+		} else {
+			return ResponseEntity.status(200).body(bucket);
+		}
+		
+	}
 	@GetMapping(path = "/getBucketByCity", produces = "application/json")
 	public ResponseEntity<Object> getBucketByCity(@RequestParam(name="city") String city){
 		try {
 			Bucket bucket = bucketService.getBucketByCity(city);
+			HttpSession session = request.getSession();
+			session.setAttribute("currentBucket", bucket);
 			return ResponseEntity.status(200).body(bucket);
 			
 		}catch(DatabaseException e) {

@@ -60,7 +60,9 @@ public class UserController {
 	
 	@GetMapping(path = "/getUserByUsername", produces = "application/json")
 	public ResponseEntity<Object> getUserByUsername(@RequestParam(name="username") String username){
+		HttpSession session = request.getSession();
 		User user = userService.getUserByUsername(username);
+		session.setAttribute("searchedUser", user);
 		return ResponseEntity.status(200).body(user);
 		
 	}
@@ -74,8 +76,6 @@ public class UserController {
 		return ResponseEntity.status(200).body(buckets);
 	}
 	
-	
-	
 	@GetMapping(path = "/currentUser")
 	public ResponseEntity<Object> getCurrentUser() {
 		HttpSession session = request.getSession();
@@ -84,7 +84,19 @@ public class UserController {
 		if(user == null) {
 			return ResponseEntity.status(400).body(new MessageDTO("no user currently logged in!"));
 		} else {
-			return ResponseEntity.status(201).body(user);
+			return ResponseEntity.status(200).body(user);
+		}
+	}
+	
+	@GetMapping(path = "/searchedUser")
+	public ResponseEntity<Object> getSearchedUser() {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("searchedUser");
+		
+		if(user == null) {
+			return ResponseEntity.status(400).body(new MessageDTO("no user currently logged in!"));
+		} else {
+			return ResponseEntity.status(200).body(user);
 		}
 	}
 	
