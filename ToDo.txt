@@ -4,7 +4,7 @@ Ranked from most important at top to least important at bottom
   -Display External Info
   -Add bucket to profile button
 
-- display friends and buckets on user-page
+- display friends and buckets on user-page and viewuser-page
 
 - unit testing (80% service layer code coverage)
 
@@ -26,7 +26,7 @@ DevOps Pipeline
 - You should have a Jenkins pipeline set-up for automated building and deployment of your backend
 - You can also choose to do the same for your frontend
 
-
+- add website banner
 - Move Search bars into their own component to display on every page
 - Styling for our pages so they dont look like poopoo
 - improve search functionality
