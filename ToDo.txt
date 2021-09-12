@@ -6,7 +6,7 @@ Ranked from most important at top to least important at bottom
 
 - implement add friend functionality to frontend (Colten)
 
-- display friends and buckets on user-page (Colten)
+- display friends and buckets on user-page
 
 - unit testing (80% service layer code coverage)
 
@@ -29,5 +29,6 @@ DevOps Pipeline
 - You can also choose to do the same for your frontend
 
 
+- Navigation Bar?
 - Styling for our pages so they dont look like poopoo
 - improve search functionality
