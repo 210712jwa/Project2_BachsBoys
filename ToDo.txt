@@ -1,8 +1,7 @@
 Ranked from most important at top to least important at bottom
 
 
-- make a bucket-page component
-  -Display backend Info
+- finish bucket-page component
   -Display External Info
   -Add bucket to profile button
 
@@ -10,11 +9,6 @@ Ranked from most important at top to least important at bottom
   -Add search bar
   -Connect search by username endpoint
   -Viewing someone else's user-page should display Add Friend button
-
-- implementing bucket search and add functionality to frontend (Colten)
-  -Add search bar
-  -Connect search by city and country endpoints
-  -Clicking on a listing should take you to that buckets page
 
 - display friends and buckets on user-page (Colten)
 
@@ -40,3 +34,4 @@ DevOps Pipeline
 
 
 - Styling for our pages so they dont look like poopoo
+- improve search functionality
