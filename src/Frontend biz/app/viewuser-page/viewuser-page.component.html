@@ -1,16 +1,6 @@
 <div class="container">
     <div>
       <label>Friends:</label>
-      <table>
-        <tbody>
-          <ng-container *ngFor = "let user of friends">
-            <tr>
-              <td>{{ user.username }}</td>
-            </tr>
-          </ng-container>
-
-        </tbody>
-      </table>
     </div>
 
     <div>
@@ -20,6 +10,9 @@
           <li>Hawaii</li>
           <li>Venice</li>
       </ul>
+    </div>
+    <div>
+        <button (click)="addFriend()">Add Friend</button>
     </div>
     <div>
       <label for="usernameSearch">Search Username:</label>
