@@ -29,5 +29,6 @@ DevOps Pipeline
 - You can also choose to do the same for your frontend
 
 
+- Navigation Bar?
 - Styling for our pages so they dont look like poopoo
 - improve search functionality
