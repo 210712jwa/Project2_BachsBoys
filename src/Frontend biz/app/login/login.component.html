@@ -8,8 +8,8 @@
     <input [(ngModel)]="password" type="password" name="password">
   </div>
   <div>
-    <button (click)="login()" data-inline = "true">Login</button>
-    <button (click) = "addUser()" data-inline = "true">Add User</button>
+    <button (click)="login()" data-inline = "true" name="loginButton">Login</button>
+    <button (click) = "addUser()" data-inline = "true" name="addUserButton">Add User</button>
   </div>
   <p id="error-message" *ngIf="showErrorMessage">{{ errorMessage }}</p>
 </form>
