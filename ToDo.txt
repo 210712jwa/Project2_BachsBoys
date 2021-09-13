@@ -2,7 +2,7 @@ Ranked from most important at top to least important at bottom
 
 - unit testing (80% service layer code coverage) (mccabe)
 
-- selenium E2E testing (requirments say at least 4 selenium tests)
+- selenium E2E testing (requirments say at least 4 selenium tests) (mccabe)
 
 
 AWS Deployment (Frontend + Backend) (eric) (colten)
