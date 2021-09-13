@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -62,6 +63,11 @@ public class FriendController {
 			}
 			
 		
+	}
+	@GetMapping(path="/getAllFriendsForUser/{id}", produces ="application/json")
+	public ResponseEntity<Object> getAllFriendsForUser(@PathVariable Integer id){
+		List<Friend> friends = friendService.getAllFriendsFromUser(id);
+		return ResponseEntity.status(200).body(friends);
 	}
 	@GetMapping(path ="/checkFriend", produces = "application/json")
 	public ResponseEntity<Object> checkFriend(){

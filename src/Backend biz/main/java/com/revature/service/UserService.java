@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.UserDAO;
-import com.revature.dto.AddBucketToUserDTO;
-import com.revature.dto.AddFriendToUserDTO;
+
 import com.revature.dto.AddUserDTO;
 import com.revature.exception.BadParameterException;
 import com.revature.model.Bucket;
-import com.revature.model.Friend;
 import com.revature.model.User;
 
 @Service

@@ -12,7 +12,8 @@ import { Bucket } from 'src/model/bucket';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
-  friends: User[] = [];
+  friends: any[] = [];
+  buckets: Bucket[] = [];
 
   citySearch: string = '';
   usernameSearch: string = '';
@@ -24,6 +25,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllFriends();
+    this.getAllBuckets();
   }
   searchUsername(){
     this.userService.searchUsername(this.usernameSearch).subscribe((data: User) => {
@@ -35,6 +37,18 @@ export class UserPageComponent implements OnInit {
     }); 
   }
 
+  goToUser(username:string){
+    this.userService.searchUsername(username).subscribe((data: User)=>{
+      this.router.navigate(['viewuser-page']);
+    })
+  }
+
+  goToBucket(city:string){
+    this.userService.searchCity(city).subscribe((data: Bucket)=>{
+      this.router.navigate(['bucket-page']);
+    })
+  }
+
   searchCity(){
     this.userService.searchCity(this.citySearch).subscribe((data: Bucket) => {
       this.router.navigate(['bucket-page']);
@@ -43,9 +57,18 @@ export class UserPageComponent implements OnInit {
   }
 
   getAllFriends(){
-    this.userService.getAllFriends().subscribe((data: User[]) =>{
+    this.userService.getAllFriends().subscribe((data: any[]) =>{
+      this.friends = data;
+      console.log(this.friends)
       
     });
+  }
+
+  getAllBuckets(){
+    this.userService.getAllBuckets().subscribe((data: Bucket[])=> {
+      this.buckets = data;
+
+    })
   }
 
   logout(){

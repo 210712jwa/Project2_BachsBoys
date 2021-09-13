@@ -1,6 +1,7 @@
 package com.revature.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -112,6 +114,11 @@ public class BucketController {
 			return ResponseEntity.status(400).body(new MessageDTO(e.getMessage()));
 		}
 			
+	}
+	@GetMapping(path = "/getAllBucketsForUser/{id}", produces = "application/json")
+	public ResponseEntity<Object> getAllBucketsFromUser(@PathVariable Integer id){
+		Set<Bucket> buckets = bucketService.getAllBucketsFromUser(id);
+		return ResponseEntity.status(200).body(buckets);
 	}
 	@GetMapping(path = "/checkBucket",produces = "application/json")
 	public ResponseEntity<Object> checkBucket(){

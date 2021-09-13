@@ -1,19 +1,40 @@
 <div class="container">
-  <div>
-    <label>Username: {{viewedUser.username}}</label>
-    <label>Name: {{viewedUser.firstName}} {{viewedUser.lastName}}</label>
-  </div>
     <div>
       <label>Friends:</label>
+      <table>
+        <tbody>
+          <ng-container *ngFor = "let friend of friends">
+            <tr>
+              <td>{{ friend.friend.username }}</td>
+              <td>{{friend.friend.firstName}} {{friend.friend.lastName}}</td>
+              <td>
+                <button (click)="goToUser( friend.friend.username  )" >Go To User</button>
+              </td>
+            </tr>
+          </ng-container>
+
+        </tbody>
+      </table>
     </div>
 
     <div>
       <label>Bucket List:</label>
-
-      <ul>
-          <li>Hawaii</li>
-          <li>Venice</li>
-      </ul>
+      <table>
+        <tbody>
+          <ng-container *ngFor = "let bucket of buckets">
+            <tr>
+              <td>{{ bucket.city }}</td>
+              <td>{{ bucket.country }}</td>
+              <td>
+                <img src= "https://maps.googleapis.com/maps/api/staticmap?center={{bucket.city}}&zoom=14&size=400x400&maptype=roadmap&key=AIzaSyBna0j5zj3u_dALgd7VgT8mSXNXLye_Fc4" alt="map">
+              </td>
+              <td>
+                <button (click)="goToBucket( bucket.city )">Go To Bucket</button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
     </div>
     <div>
         <button *ngIf="isNotFriend" (click)="addFriend()">Add Friend</button>

@@ -48,6 +48,11 @@ public class FriendService {
 		return link;
 	}
 
+	public List<Friend> getAllFriendsFromUser(Integer id) {
+		List<Friend> friends = friendDAO.getAllFriendsFromUser(id);
+		return friends;
+	}
+
 
 
 }

@@ -82,4 +82,9 @@ public class BucketService {
 		return isAdded;
 	}
 
+	public Set<Bucket> getAllBucketsFromUser(Integer id) {
+		Set<Bucket> buckets= bucketDAO.getAllBucketsFromUser(id);
+		return buckets;
+	}
+
 }

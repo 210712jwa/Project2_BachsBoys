@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -73,6 +74,14 @@ public class BucketDAO {
 		
 		Session session = sessionFactory.getCurrentSession();
 		List<Bucket> buckets = session.createQuery("Select s FROM Bucket s WHERE s.country = :country").setParameter("country", country).getResultList();
+		return buckets;
+	}
+
+	@Transactional
+	public Set<Bucket> getAllBucketsFromUser(Integer id) {
+		Session session = sessionFactory.getCurrentSession();
+		User user = session.get(User.class, id);
+		Set<Bucket> buckets =user.getBuckets();
 		return buckets;
 	}
 }

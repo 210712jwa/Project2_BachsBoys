@@ -42,4 +42,11 @@ public class FriendDAO {
 		return link;
 	}
 
+	@Transactional
+	public List<Friend> getAllFriendsFromUser(Integer id) {
+		Session session = sessionFactory.getCurrentSession();
+		List<Friend> friends = session.createQuery("Select s FROM Friend s JOIN s.user u WHERE u.id = :userid").setParameter("userid", id).getResultList();
+		return friends;
+	}
+
 }
