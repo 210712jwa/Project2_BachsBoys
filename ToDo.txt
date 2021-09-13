@@ -5,7 +5,7 @@ Ranked from most important at top to least important at bottom
 - selenium E2E testing (requirments say at least 4 selenium tests)
 
 
-AWS Deployment (Frontend + Backend) (eric)
+AWS Deployment (Frontend + Backend) (eric) (colten)
 
 - The frontend and backend should be deployed on your EC2 instance
 - You can utilize the Tomcat server that you set-up on your EC2 to host your backend Spring Framework application
