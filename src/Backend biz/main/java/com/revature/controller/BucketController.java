@@ -120,12 +120,14 @@ public class BucketController {
 		Set<Bucket> buckets = bucketService.getAllBucketsFromUser(id);
 		return ResponseEntity.status(200).body(buckets);
 	}
+	
 	@GetMapping(path = "/checkBucket",produces = "application/json")
 	public ResponseEntity<Object> checkBucket(){
 		HttpSession session = request.getSession();
 		Bucket bucket = (Bucket) session.getAttribute("currentBucket");
 		User user = (User) session.getAttribute("currentUser");
 		boolean isAdded = bucketService.checkBucket(user,bucket);
+		System.out.println(isAdded);
 		if(isAdded) {
 			return ResponseEntity.status(200).body(bucket);
 		} else {

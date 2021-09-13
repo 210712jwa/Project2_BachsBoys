@@ -76,9 +76,14 @@ public class BucketService {
 	}
 
 	public boolean checkBucket(User user, Bucket bucket) {
-		Set<Bucket> userBuckets = userDAO.getUserBuckets(user);
 		boolean isAdded = false;
-		isAdded =userBuckets.contains(bucket);
+		Set<Bucket> userBuckets = userDAO.getUserBuckets(user);
+		for(Bucket b: userBuckets ) {
+			if(b.getId()==bucket.getId()) {
+				isAdded = true;
+			}
+		}
+		
 		return isAdded;
 	}
 

@@ -12,7 +12,7 @@ export class BucketPageComponent implements OnInit {
   bucket: any = null;
   city: string = "";
   country: string = "";
-  isNotAdded: boolean = false;
+  isNotAdded: boolean = true;
 
   map: any = null;
 
@@ -51,13 +51,12 @@ export class BucketPageComponent implements OnInit {
   checkIfAlreadyAdded(){
     this.bs.checkIfAlreadyAdded().subscribe((data) => {
       if(data != null){
-        this.isNotAdded= true;
-      } else {
         this.isNotAdded= false;
+      } else {
+        this.isNotAdded= true;
       }
 
     })
-
   }
   addBucket(){
     this.bs.addBucket(this.bucket.id).subscribe((data) =>{
